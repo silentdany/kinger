@@ -10,6 +10,7 @@ import {
   CarouselControl,
   CarouselIndicators,
   CarouselCaption,
+  Badge,
 } from 'reactstrap';
 import { FiInfo } from 'react-icons/fi';
 import './Card.css';
@@ -17,6 +18,7 @@ import './Card.css';
 import courtisane_1 from '../images/courtisane_1.jpg';
 import courtisane_2 from '../images/courtisane_2.jpg';
 
+// Profile pictures array for acrousel
 const items = [
   {
     src: courtisane_1,
@@ -34,27 +36,29 @@ const items = [
   },
 ];
 
+// MAIN FUNCTION
 function ProfileCard() {
+  // Carousel control states
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
+  // Carousel controls functions
   const next = () => {
     if (animating) return;
     const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
   };
-
   const previous = () => {
     if (animating) return;
     const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
   };
-
   const goToIndex = (newIndex) => {
     if (animating) return;
     setActiveIndex(newIndex);
   };
 
+  // Carousel items slides function
   const slides = items.map((item) => {
     return (
       <CarouselItem
@@ -79,6 +83,7 @@ function ProfileCard() {
             activeIndex={activeIndex}
             onClickHandler={goToIndex}
           />
+          {/* Actual slide items */}
           {slides}
           <CarouselControl
             style={{ display: 'none' }}
@@ -93,6 +98,7 @@ function ProfileCard() {
             onClickHandler={next}
           />
         </Carousel>
+        {/* Profile informations */}
         <CardBody
           style={{ height: '75vh' }}
           className='position-absolute d-flex justify-content-start align-items-end'>
@@ -107,6 +113,17 @@ function ProfileCard() {
             </div>
             <CardText>
               Icelui jovait clavecin debovt, Cela est se pevt brovtille por vovs
+            </CardText>
+            <CardText>
+              <Badge pill color='dark' className='opacity-4 m-2 p-2'>
+                Musique
+              </Badge>
+              <Badge pill color='dark' className='opacity-4 m-2 p-2'>
+                Danse
+              </Badge>
+              <Badge pill color='dark' className='opacity-4 m-2 p-2'>
+                Perruques
+              </Badge>
             </CardText>
           </div>
           <div className='d-flex w-25 justify-content-center'>
