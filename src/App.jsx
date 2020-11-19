@@ -1,6 +1,8 @@
 import "./App.css";
 import Header from "./components/Header";
 import ProfileCard from "./components/ProfileCard";
+import FocusPartisan from "./components/pages/FocusPartisan";
+import FavoriPage from "./components/pages/FavoriPage";
 import Body from "./components/body";
 
 function App() {
@@ -9,6 +11,8 @@ function App() {
       <Header />
       <Body />
       <ProfileCard />
+      <FocusPartisan />
+      <FavoriPage />
     </div>
   );
 }
