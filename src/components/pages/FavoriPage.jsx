@@ -1,4 +1,13 @@
-import { Col, Card, CardImg, CardTitle, CardDeck } from "reactstrap";
+import {
+  CardGroup,
+  Card,
+  CardImg,
+  CardTitle,
+  CardBody,
+  CardSubtitle,
+  CardText,
+  Button,
+} from "reactstrap";
 import { useContext } from "react";
 
 import TextIntroFavori from "../TextFavoriPage";
@@ -8,49 +17,57 @@ function FavoriPage() {
   const { persons } = useContext(UsersContext);
 
   return (
-    <CardDeck>
-      <TextIntroFavori className="text-responsive" />
-      <Col
-        xs={{ size: 12 }}
-        md={{ size: 5 }}
-        lg={{ size: 4 }}
-        xl={{ size: 4 }}
-        className="container-fluid w-50"
-      >
-        <Card>
-          <CardImg
-            top
-            width="50%"
-            src={persons[0].picture.medium}
-            alt="Card image cap"
-          />
-
-          <CardTitle tag="h5">{persons[0].name.title}</CardTitle>
-        </Card>
-
-        <Card>
-          <CardImg
-            top
-            width="100%"
-            src={persons.picture}
-            alt="Card image cap"
-          />
-
-          <CardTitle tag="h5">{persons.name}</CardTitle>
-        </Card>
-
-        <Card>
-          <CardImg
-            top
-            width="100%"
-            src={persons.picture}
-            alt="Card image cap"
-          />
-
-          <CardTitle tag="h5">{persons.name}</CardTitle>
-        </Card>
-      </Col>
-    </CardDeck>
+    <CardGroup>
+      <TextIntroFavori />
+      <Card>
+        <CardImg
+          top
+          width="100%"
+          src={persons[0].picture.medium}
+          alt="Card image cap"
+        />
+        <CardBody>
+          <CardTitle>{persons[0].name.first}</CardTitle>
+          <CardSubtitle tag="h6" className="mb-2 text-muted">
+            {persons[0].name.first}
+          </CardSubtitle>
+          <CardText>
+            This card has supporting text below as a natural lead-in to
+            additional content.
+          </CardText>
+        </CardBody>
+      </Card>
+      <Card>
+        <CardImg
+          top
+          width="100%"
+          src={persons[0].picture.medium}
+          alt="Card image cap"
+        />
+        <CardBody>
+          <CardTitle tag="h5">{persons[0].name.first}</CardTitle>
+          <CardSubtitle tag="h6" className="mb-2 text-muted">
+            {persons[0].name.first}
+          </CardSubtitle>
+          <CardText>
+            This card has supporting text below as a natural lead-in to
+            additional content.
+          </CardText>
+          <Button>Button</Button>
+        </CardBody>
+      </Card>
+      <Card>
+        <CardImg
+          top
+          width="100%"
+          src={persons[0].picture.medium}
+          alt="Card image cap"
+        />
+        <CardBody>
+          <CardTitle tag="h5">{persons[0].name.first}</CardTitle>
+        </CardBody>
+      </Card>
+    </CardGroup>
   );
 }
 
