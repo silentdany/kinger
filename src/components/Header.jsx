@@ -1,20 +1,20 @@
-import { Navbar } from "reactstrap";
-import { SiTinder } from "react-icons/si";
-import { AiFillStar } from "react-icons/ai";
-import { FaUser } from "react-icons/fa";
-import { useState } from "react";
+import { Navbar } from 'reactstrap';
+import { SiTinder } from 'react-icons/si';
+import { AiFillStar } from 'react-icons/ai';
+import { FaUser } from 'react-icons/fa';
+import { useState } from 'react';
 
 const Header = () => {
   const [currentPage, setCurrentPage] = useState(false);
 
   return (
-    <Navbar className="d-flex justify-content-around">
+    <Navbar className='d-flex justify-content-around' style={{ height: '6vh' }}>
       <SiTinder
         size={25}
         onClick={() => {
           setCurrentPage(!currentPage);
         }}
-        className={currentPage ? "grayIcon" : "redIcon"}
+        className={currentPage ? 'grayIcon' : 'redIcon'}
       />
 
       <AiFillStar
@@ -22,7 +22,7 @@ const Header = () => {
         onClick={() => {
           setCurrentPage(!currentPage);
         }}
-        className={currentPage ? "grayIcon" : "redIcon"}
+        className={currentPage ? 'grayIcon' : 'redIcon'}
       />
 
       <FaUser
@@ -30,7 +30,7 @@ const Header = () => {
         onClick={() => {
           setCurrentPage(!currentPage);
         }}
-        className={currentPage ? "grayIcon" : "redIcon"}
+        className={currentPage ? 'grayIcon' : 'redIcon'}
       />
     </Navbar>
   );
