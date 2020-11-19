@@ -12,6 +12,7 @@ import {
   CarouselCaption,
   Badge,
 } from 'reactstrap';
+import TinderCard from 'react-tinder-card';
 import { FiInfo } from 'react-icons/fi';
 import './Card.css';
 
@@ -75,63 +76,78 @@ function ProfileCard() {
     );
   });
 
+  // Tinder-like card functions
+  const onSwipe = (direction) => {
+    console.log('You swiped: ' + direction);
+  };
+
+  const onCardLeftScreen = (myIdentifier) => {
+    console.log(myIdentifier + ' left the screen');
+  };
+
   return (
     <div>
-      <Card style={{ maxHeight: '75vh', width: '100vw', border: '0' }}>
-        <Carousel activeIndex={activeIndex} next={next} previous={previous}>
-          <CarouselIndicators
-            items={items}
-            activeIndex={activeIndex}
-            onClickHandler={goToIndex}
-          />
-          {/* Actual slide items */}
-          {slides}
-          <CarouselControl
-            style={{ display: 'none' }}
-            direction='prev'
-            directionText='Previous'
-            onClickHandler={previous}
-          />
-          <CarouselControl
-            style={{ display: 'none' }}
-            direction='next'
-            directionText='Next'
-            onClickHandler={next}
-          />
-        </Carousel>
-        {/* Profile informations */}
-        <CardBody
-          style={{ height: '75vh' }}
-          className='position-absolute d-flex justify-content-start align-items-end'>
-          <div className='d-flex flex-column'>
-            <div className='d-flex align-items-center'>
-              <CardTitle tag='h3' className='font-weight-bold'>
-                Josianne
-              </CardTitle>
-              <CardSubtitle tag='h4' className='ml-2 font-weight-light'>
-                42
-              </CardSubtitle>
+      <TinderCard
+        onSwipe={onSwipe}
+        onCardLeftScreen={() => onCardLeftScreen('fooBar')}
+        preventSwipe={['right', 'left']}>
+        <Card style={{ maxHeight: '75vh', width: '100vw', border: '0' }}>
+          <Carousel activeIndex={activeIndex} next={next} previous={previous}>
+            <CarouselIndicators
+              items={items}
+              activeIndex={activeIndex}
+              onClickHandler={goToIndex}
+            />
+            {/* Actual slide items */}
+            {slides}
+            <CarouselControl
+              style={{ display: 'none' }}
+              direction='prev'
+              directionText='Previous'
+              onClickHandler={previous}
+            />
+            <CarouselControl
+              style={{ display: 'none' }}
+              direction='next'
+              directionText='Next'
+              onClickHandler={next}
+            />
+          </Carousel>
+          {/* Profile informations */}
+          <CardBody
+            style={{ height: '75vh' }}
+            className='position-absolute d-flex justify-content-start align-items-end'>
+            <div className='d-flex flex-column'>
+              <div className='d-flex align-items-center'>
+                <CardTitle tag='h3' className='font-weight-bold'>
+                  Josianne
+                </CardTitle>
+                <CardSubtitle tag='h4' className='ml-2 font-weight-light'>
+                  42
+                </CardSubtitle>
+              </div>
+              <CardText>
+                Icelui jovait clavecin debovt, Cela est se pevt brovtille por
+                vovs
+              </CardText>
+              <CardText>
+                <Badge pill color='dark' className='opacity-4 m-2 p-2'>
+                  Musique
+                </Badge>
+                <Badge pill color='dark' className='opacity-4 m-2 p-2'>
+                  Danse
+                </Badge>
+                <Badge pill color='dark' className='opacity-4 m-2 p-2'>
+                  Perruques
+                </Badge>
+              </CardText>
             </div>
-            <CardText>
-              Icelui jovait clavecin debovt, Cela est se pevt brovtille por vovs
-            </CardText>
-            <CardText>
-              <Badge pill color='dark' className='opacity-4 m-2 p-2'>
-                Musique
-              </Badge>
-              <Badge pill color='dark' className='opacity-4 m-2 p-2'>
-                Danse
-              </Badge>
-              <Badge pill color='dark' className='opacity-4 m-2 p-2'>
-                Perruques
-              </Badge>
-            </CardText>
-          </div>
-          <div className='d-flex w-25 justify-content-center'>
-            <FiInfo size={25} />
-          </div>
-        </CardBody>
-      </Card>
+            <div className='d-flex w-25 justify-content-center'>
+              <FiInfo size={25} />
+            </div>
+          </CardBody>
+        </Card>
+      </TinderCard>
     </div>
   );
 }
