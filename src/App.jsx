@@ -1,13 +1,14 @@
+import { Navbar } from 'reactstrap';
 import './App.css';
 
-import { Alert } from 'reactstrap';
+import ProfileCard from './components/ProfileCard';
 
 function App() {
   return (
     <div className='App'>
-      <h1>Kinger</h1>
-      <h2>Tinder for the King</h2>
-      <Alert color='warning'>Branche dev, attention !</Alert>
+      <Navbar style={{ height: '10vh' }}>Nav</Navbar>
+      <ProfileCard />
+      <Navbar style={{ height: '15vh' }}>Footer</Navbar>
     </div>
   );
 }
