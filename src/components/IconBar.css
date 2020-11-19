@@ -1,0 +1,10 @@
+.iconBar {
+  background-color: #f6f7fa;
+}
+.iconButton {
+  background-color: white !important;
+  border: white !important;
+}
+.iconButton:hover {
+  transform: scale(1.2);
+}

@@ -1,21 +1,22 @@
-import { Button, Nav } from "reactstrap";
+import { Button } from "reactstrap";
 import { ImCross } from "react-icons/im";
 import { BsFillHeartFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
+import "./IconBar.css";
 
 function IconBar() {
   return (
-    <Nav className="d-flex justify-content-center iconBar">
-      <Button className="rounded-circle h-auto w-auto iconButton">
-        <ImCross color="#fe4a6b" size={25} />
+    <div className="py-4 d-flex justify-content-center iconBar">
+      <Button className="btn-outline-light rounded-circle h-auto w-auto iconButton">
+        <ImCross color="#fe615f" size={25} />
       </Button>
-      <Button className="rounded-circle iconButton h-200">
+      <Button className="btn-outline-light rounded-circle iconButton h-200">
         <BsFillHeartFill color="#24e5a9" size={25} />
       </Button>
-      <Button className="rounded-circle h-auto w-auto iconButton">
+      <Button className="btn-outline-light rounded-circle h-auto w-auto iconButton">
         <AiFillStar color="#20bbff" size={30} />
       </Button>
-    </Nav>
+    </div>
   );
 }
 
