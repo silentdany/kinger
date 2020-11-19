@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import UsersContext from '../contexts/UsersContext';
 import { Link } from 'react-router-dom';
 import {
   Card,
@@ -39,6 +40,10 @@ const items = [
 
 // MAIN FUNCTION
 function ProfileCard({ id }) {
+  const { persons } = useContext(UsersContext);
+
+  console.log(persons);
+
   // Carousel control states
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
