@@ -1,3 +1,12 @@
 .card {
   color: white;
 }
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  display: none !important;
+}
+
+.carousel-indicators {
+  bottom: initial !important;
+}

@@ -15,6 +15,7 @@ import { FiInfo } from 'react-icons/fi';
 import './Card.css';
 
 import courtisane_1 from '../images/courtisane_1.jpg';
+import courtisane_2 from '../images/courtisane_2.jpg';
 
 const items = [
   {
@@ -25,18 +26,11 @@ const items = [
     key: '1',
   },
   {
-    src: courtisane_1,
+    src: courtisane_2,
     altText: 'Slide 2',
     caption: 'Slide 2',
     header: 'Slide 2 Header',
     key: '2',
-  },
-  {
-    src: courtisane_1,
-    altText: 'Slide 3',
-    caption: 'Slide 3',
-    header: 'Slide 3 Header',
-    key: '3',
   },
 ];
 
@@ -78,12 +72,8 @@ function ProfileCard() {
 
   return (
     <div>
-      <Card style={{ maxHeight: '75vh' }}>
-        <Carousel
-          className='position-absolute'
-          activeIndex={activeIndex}
-          next={next}
-          previous={previous}>
+      <Card style={{ maxHeight: '75vh', width: '100vw' }}>
+        <Carousel activeIndex={activeIndex} next={next} previous={previous}>
           <CarouselIndicators
             items={items}
             activeIndex={activeIndex}
@@ -91,11 +81,13 @@ function ProfileCard() {
           />
           {slides}
           <CarouselControl
+            style={{ display: 'none' }}
             direction='prev'
             directionText='Previous'
             onClickHandler={previous}
           />
           <CarouselControl
+            style={{ display: 'none' }}
             direction='next'
             directionText='Next'
             onClickHandler={next}
@@ -103,7 +95,7 @@ function ProfileCard() {
         </Carousel>
         <CardBody
           style={{ height: '75vh' }}
-          className='position-relative d-flex justify-content-start align-items-end'>
+          className='position-absolute d-flex justify-content-start align-items-end'>
           <div className='d-flex flex-column'>
             <div className='d-flex align-items-center'>
               <CardTitle tag='h3' className='bold'>
