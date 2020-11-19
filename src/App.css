@@ -1,6 +1,21 @@
 .App {
   text-align: center;
 }
+.redIcon {
+  color: #fd5068;
+}
+.grayIcon {
+  color: #e5e9f0;
+}
+/*
+.iconBar {
+  background-color: #f5f7fa;
+}
+*/
+.iconButton {
+  background-color: white !important;
+  border: white !important;
+}
 .opacity-0 {
   opacity: 0 !important;
 }
