@@ -1,4 +1,4 @@
-import { Card, CardImg, CardTitle, CardDeck } from "reactstrap";
+import { Col, Card, CardImg, CardTitle, CardDeck } from "reactstrap";
 
 import PropTypes from "prop-types";
 
@@ -26,28 +26,41 @@ function FavoriPage() {
   return (
     <CardDeck>
       <TextIntroFavori />
-      <Card>
-        <CardImg top width="100%" src={CatherineCormack} alt="Card image cap" />
+      <Col
+        xs={{ size: 12 }}
+        md={{ size: 5 }}
+        lg={{ size: 4 }}
+        xl={{ size: 4 }}
+        className="container-fluid w-50"
+      >
+        <Card>
+          <CardImg
+            top
+            width="100%"
+            src={CatherineCormack}
+            alt="Card image cap"
+          />
 
-        <CardTitle tag="h5">{courtisans.character}</CardTitle>
-      </Card>
+          <CardTitle tag="h5">{courtisans.character}</CardTitle>
+        </Card>
 
-      <Card>
-        <CardImg
-          top
-          width="100%"
-          src={CatherineDeMedicis}
-          alt="Card image cap"
-        />
+        <Card>
+          <CardImg
+            top
+            width="100%"
+            src={CatherineDeMedicis}
+            alt="Card image cap"
+          />
 
-        <CardTitle tag="h5">{courtisans.character}</CardTitle>
-      </Card>
+          <CardTitle tag="h5">{courtisans.character}</CardTitle>
+        </Card>
 
-      <Card>
-        <CardImg top width="100%" src={TulliaDaragona} alt="Card image cap" />
+        <Card>
+          <CardImg top width="100%" src={TulliaDaragona} alt="Card image cap" />
 
-        <CardTitle tag="h5">{courtisans.character}</CardTitle>
-      </Card>
+          <CardTitle tag="h5">{courtisans.character}</CardTitle>
+        </Card>
+      </Col>
     </CardDeck>
   );
 }
