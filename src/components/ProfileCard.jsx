@@ -128,12 +128,11 @@ function ProfileCard({ id }) {
               </Badge>
             </CardText>
           </div>
-          <div className='d-flex w-25 justify-content-center'>
-            <Link to='/partisan' style={{ zIndex: '500!important' }}>
-              <RiInformationFill
-                size={30}
-                style={{ fill: 'white', zIndex: '500' }}
-              />
+          <div
+            className='d-flex w-25 justify-content-center'
+            style={{ zIndex: '500' }}>
+            <Link to='/partisan'>
+              <RiInformationFill size={30} style={{ fill: 'white' }} />
             </Link>
           </div>
         </CardBody>
