@@ -17,3 +17,7 @@
   width: initial !important;
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.55);
 }
+
+.carousel-indicators li {
+  width: -webkit-fill-available !important;
+}

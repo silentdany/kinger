@@ -13,7 +13,7 @@ import {
   CarouselCaption,
   Badge,
 } from 'reactstrap';
-import { FiInfo } from 'react-icons/fi';
+import { RiInformationFill } from 'react-icons/ri';
 import './Card.css';
 
 import courtisane_1 from '../images/courtisane_1.jpg';
@@ -67,7 +67,7 @@ function ProfileCard({ id }) {
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
         key={item.src}>
-        <img src={item.src} alt={item.altText} style={{ height: '75vh' }} />
+        <img src={item.src} alt={item.altText} style={{ height: '79vh' }} />
         <CarouselCaption
           captionText={item.caption}
           captionHeader={item.caption}
@@ -78,7 +78,7 @@ function ProfileCard({ id }) {
 
   return (
     <div>
-      <Card style={{ maxHeight: '75vh', width: '100vw', border: '0' }}>
+      <Card style={{ maxHeight: '79vh', width: '100vw', border: '0' }}>
         <Carousel activeIndex={activeIndex} next={next} previous={previous}>
           <CarouselIndicators
             items={items}
@@ -102,7 +102,7 @@ function ProfileCard({ id }) {
         </Carousel>
         {/* Profile informations */}
         <CardBody
-          style={{ height: '75vh' }}
+          style={{ height: '79vh' }}
           className='position-absolute d-flex justify-content-start align-items-end'>
           <div className='d-flex flex-column'>
             <div className='d-flex align-items-center'>
@@ -130,7 +130,10 @@ function ProfileCard({ id }) {
           </div>
           <div className='d-flex w-25 justify-content-center'>
             <Link to='/partisan' style={{ zIndex: '500!important' }}>
-              <FiInfo size={25} />
+              <RiInformationFill
+                size={30}
+                style={{ fill: 'white', zIndex: '500' }}
+              />
             </Link>
           </div>
         </CardBody>
