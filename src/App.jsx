@@ -1,13 +1,9 @@
-import "./App.css";
-import Header from "./components/Header";
-import ProfileCard from "./components/ProfileCard";
-import Body from "./components/body";
+import './App.css';
+import ProfileCard from './components/ProfileCard';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Body />
+    <div className='App'>
       <ProfileCard />
     </div>
   );
