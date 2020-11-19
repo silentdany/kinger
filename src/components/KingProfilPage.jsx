@@ -1,31 +1,23 @@
-import { Col, Container, Row } from "reactstrap";
-import { BsPerson } from "react-icons/bs";
-import { AiOutlineWoman } from "react-icons/ai";
-import { AiOutlineHome } from "react-icons/ai";
-import { AiOutlineCalendar } from "react-icons/ai";
+import { CardImg, Col, Container, Row } from "reactstrap";
 
 function KingProfil() {
   return (
     <Container>
       <Row>
-        <Col xs="12" className="mt-3 mb-4">
-          <img src="" alt="" className="img-fluid" />
+        <Col xs={{ size: 6, offset: 3 }} className="mt-3 mb-4">
+          <CardImg
+            className="rounded-circle"
+            top
+            width="100%"
+            src="https://static.cnews.fr/sites/default/files/louis_xiv_of_france.jpg"
+            alt="Card image cap"
+          />
         </Col>
-        <Col xs="6" className="text-left">
-          <h2>
-            <BsPerson /> Partisan
-          </h2>
-          <h3>
-            <AiOutlineCalendar /> 32
-          </h3>
-          <h3>
-            <AiOutlineWoman /> Female
-          </h3>
-          <h3>
-            <AiOutlineHome /> Versailles
-          </h3>
+        <Col xs="12" className="text-center">
+          <h2>Louis XIV</h2>
+          <h4>Château de Versailles</h4>
         </Col>
-        <Col xs="6" className="text-left">
+        <Col xs={{ size: 6, offset: 3 }} className="text-center mt-3">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
             numquam quam facere, minima id voluptas fuga consectetur cumque
