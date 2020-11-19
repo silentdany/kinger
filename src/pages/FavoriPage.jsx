@@ -29,7 +29,7 @@ function FavoriPage() {
       <Card>
         <CardImg top width="100%" src={CatherineCormack} alt="Card image cap" />
 
-        <CardTitle tag="h5">Catherine Cormack</CardTitle>
+        <CardTitle tag="h5">{courtisans.character}</CardTitle>
       </Card>
 
       <Card>
@@ -40,13 +40,13 @@ function FavoriPage() {
           alt="Card image cap"
         />
 
-        <CardTitle tag="h5">Catherine De Medicis</CardTitle>
+        <CardTitle tag="h5">{courtisans.character}</CardTitle>
       </Card>
 
       <Card>
         <CardImg top width="100%" src={TulliaDaragona} alt="Card image cap" />
 
-        <CardTitle tag="h5">Tullia D'Aragona</CardTitle>
+        <CardTitle tag="h5">{courtisans.character}</CardTitle>
       </Card>
     </CardDeck>
   );
