@@ -62,6 +62,7 @@ function ProfileCard() {
   const slides = items.map((item) => {
     return (
       <CarouselItem
+        className='shadow-lg'
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
         key={item.src}>
@@ -76,7 +77,7 @@ function ProfileCard() {
 
   return (
     <div>
-      <Card style={{ maxHeight: '75vh', width: '100vw' }}>
+      <Card style={{ maxHeight: '75vh', width: '100vw', border: '0' }}>
         <Carousel activeIndex={activeIndex} next={next} previous={previous}>
           <CarouselIndicators
             items={items}
@@ -104,10 +105,10 @@ function ProfileCard() {
           className='position-absolute d-flex justify-content-start align-items-end'>
           <div className='d-flex flex-column'>
             <div className='d-flex align-items-center'>
-              <CardTitle tag='h3' className='bold'>
+              <CardTitle tag='h3' className='font-weight-bold'>
                 Josianne
               </CardTitle>
-              <CardSubtitle tag='h4' className='ml-2'>
+              <CardSubtitle tag='h4' className='ml-2 font-weight-light'>
                 42
               </CardSubtitle>
             </div>

@@ -10,3 +10,10 @@
 .carousel-indicators {
   bottom: initial !important;
 }
+
+.carousel-inner {
+  border-radius: 10px;
+  margin: 5px;
+  width: initial !important;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.55);
+}
