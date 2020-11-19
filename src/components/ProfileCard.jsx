@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardText,
@@ -37,7 +38,7 @@ const items = [
 ];
 
 // MAIN FUNCTION
-function ProfileCard() {
+function ProfileCard({ id }) {
   // Carousel control states
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
@@ -128,10 +129,12 @@ function ProfileCard() {
             </CardText>
           </div>
           <div className='d-flex w-25 justify-content-center'>
-            <RiInformationFill
-              size={30}
-              style={{ fill: 'white', zIndex: '500' }}
-            />
+            <Link to='/partisan' style={{ zIndex: '500!important' }}>
+              <RiInformationFill
+                size={30}
+                style={{ fill: 'white', zIndex: '500' }}
+              />
+            </Link>
           </div>
         </CardBody>
       </Card>
