@@ -2,10 +2,10 @@ import { Card, CardImg, CardTitle, CardDeck } from "reactstrap";
 
 import PropTypes from "prop-types";
 
-import TextIntroFavori from "../components/TextIntroFavori";
-import CatherineCormack from "../images/CatherineCormack.jpg";
-import CatherineDeMedicis from "../images/CatherineDeMedicis.jpg";
-import TulliaDaragona from "../images/TulliaDaragona.jpg";
+import TextIntroFavori from "../TextIntroFavori";
+import CatherineCormack from "./images/CatherineCormack.jpg";
+import CatherineDeMedicis from "./images/CatherineDeMedicis.jpg";
+import TulliaDaragona from "./images/TulliaDaragona.jpg";
 
 function FavoriPage() {
   const courtisans = [

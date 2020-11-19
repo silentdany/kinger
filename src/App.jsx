@@ -1,10 +1,19 @@
-import FavoriPage from "./pages/FavoriPage";
+import FavoriPage from "./components/pages/FavoriPage";
+import "./App.css";
+import Header from "./components/Header";
+import ProfileCard from "./components/ProfileCard";
+import FocusPartisan from "./components/pages/FocusPartisan";
+import KingProfil from "./components/KingProfilPage";
+import Body from "./components/body";
 
 function App() {
   return (
     <div className="App">
-      <h1>Kinger</h1>
-      <h2>Tinder for the King</h2>
+      <Header />
+      <Body />
+      <ProfileCard />
+      <FocusPartisan />
+      <KingProfil />
       <FavoriPage />
     </div>
   );
