@@ -5,7 +5,7 @@ function KingProfil() {
   return (
     <Container>
       <Row>
-        <Col xs={{ size: 6, offset: 3 }} className="mt-3 mb-4">
+        <Col xs={{ size: 6, offset: 3 }} className="mt-5 mb-4">
           <CardImg
             className="rounded-circle"
             top
@@ -18,7 +18,7 @@ function KingProfil() {
           <h2>Louis XIV</h2>
           <h4>Château de Versailles</h4>
         </Col>
-        <Col xs={{ size: 6, offset: 3 }} className="text-center mt-3">
+        <Col xs={{ size: 10, offset: 1 }} className="text-justify mt-3">
           <p>
             Passionné par la chasse, amateur de promenade, je cherche une
             courtisane qui saura être la parfaite compagne pour les
