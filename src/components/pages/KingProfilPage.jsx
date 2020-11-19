@@ -1,4 +1,5 @@
 import { CardImg, Col, Container, Row } from "reactstrap";
+import LouisXIV from "../../images/LouisXIV.jpg";
 
 function KingProfil() {
   return (
@@ -9,7 +10,7 @@ function KingProfil() {
             className="rounded-circle"
             top
             width="100%"
-            src="https://static.cnews.fr/sites/default/files/louis_xiv_of_france.jpg"
+            src={LouisXIV}
             alt="Card image cap"
           />
         </Col>
@@ -19,9 +20,10 @@ function KingProfil() {
         </Col>
         <Col xs={{ size: 6, offset: 3 }} className="text-center mt-3">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            numquam quam facere, minima id voluptas fuga consectetur cumque
-            harum sint accusamus eveniet recusandae architecto expedita.
+            Passionné par la chasse, amateur de promenade, je cherche une
+            courtisane qui saura être la parfaite compagne pour les
+            divertissements du soir: les jeux, les bals et les sorties au
+            théâtre.
           </p>
         </Col>
       </Row>
