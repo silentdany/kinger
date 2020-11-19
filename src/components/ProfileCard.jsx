@@ -131,7 +131,12 @@ function ProfileCard({ id }) {
             </CardText>
           </div>
           <div className="d-flex w-25 justify-content-center">
-            <FiInfo tag={Link} to="/FocusPartisan" size={25} />
+            <FiInfo
+              tag={Link}
+              to="/FocusPartisan"
+              size={25}
+              style={{ zIndex: "500" }}
+            />
           </div>
         </CardBody>
       </Card>
