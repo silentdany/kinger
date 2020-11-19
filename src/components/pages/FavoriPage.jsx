@@ -1,31 +1,15 @@
 import { Col, Card, CardImg, CardTitle, CardDeck } from "reactstrap";
-
-import PropTypes from "prop-types";
+import { useContext } from "react";
 
 import TextIntroFavori from "../TextFavoriPage";
-import CatherineCormack from "../../images/CatherineCormack.jpg";
-import CatherineDeMedicis from "../../images/CatherineDeMedicis.jpg";
-import TulliaDaragona from "../../images/TulliaDaragona.jpg";
+import UsersContext from "../../contexts/UsersContext";
 
 function FavoriPage() {
-  const courtisans = [
-    {
-      image: { CatherineCormack },
-      character: "Catherine Cormack",
-    },
-    {
-      image: { CatherineDeMedicis },
-      character: "Catherine De Medicis",
-    },
-    {
-      image: { TulliaDaragona },
-      character: "Tullia D'Aragona",
-    },
-  ];
+  const { persons } = useContext(UsersContext);
 
   return (
     <CardDeck>
-      <TextIntroFavori />
+      <TextIntroFavori className="text-responsive" />
       <Col
         xs={{ size: 12 }}
         md={{ size: 5 }}
@@ -36,38 +20,38 @@ function FavoriPage() {
         <Card>
           <CardImg
             top
-            width="100%"
-            src={CatherineCormack}
+            width="50%"
+            src={persons[0].picture.medium}
             alt="Card image cap"
           />
 
-          <CardTitle tag="h5">{courtisans.character}</CardTitle>
+          <CardTitle tag="h5">{persons[0].name.title}</CardTitle>
         </Card>
 
         <Card>
           <CardImg
             top
             width="100%"
-            src={CatherineDeMedicis}
+            src={persons.picture}
             alt="Card image cap"
           />
 
-          <CardTitle tag="h5">{courtisans.character}</CardTitle>
+          <CardTitle tag="h5">{persons.name}</CardTitle>
         </Card>
 
         <Card>
-          <CardImg top width="100%" src={TulliaDaragona} alt="Card image cap" />
+          <CardImg
+            top
+            width="100%"
+            src={persons.picture}
+            alt="Card image cap"
+          />
 
-          <CardTitle tag="h5">{courtisans.character}</CardTitle>
+          <CardTitle tag="h5">{persons.name}</CardTitle>
         </Card>
       </Col>
     </CardDeck>
   );
 }
-
-FavoriPage.propTypes = {
-  image: PropTypes.string.isRequired,
-  character: PropTypes.string.isRequired,
-};
 
 export default FavoriPage;
