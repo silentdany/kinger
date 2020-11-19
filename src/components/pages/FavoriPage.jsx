@@ -1,24 +1,25 @@
-import { Card, CardImg, CardTitle, CardDeck } from "reactstrap";
+import { Card, CardImg, CardTitle, CardDeck } from 'reactstrap';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import TextIntroFavori from "../TextIntroFavori";
-import CatherineCormack from "./images/CatherineCormack.jpg";
-import CatherineDeMedicis from "./images/CatherineDeMedicis.jpg";
-import TulliaDaragona from "./images/TulliaDaragona.jpg";
+import TextIntroFavori from '../TextIntroFavori';
+import CatherineCormack from '../../images/CatherineCormack.jpg';
+import CatherineDeMedicis from '../../images/CatherineDeMedicis.jpg';
+import TulliaDaragona from '../../images/TulliaDaragona.jpg';
 
 function FavoriPage() {
+  console.log(CatherineCormack);
   const courtisans = [
     {
-      image: { CatherineCormack },
-      character: "Catherine Cormack",
+      image: CatherineCormack,
+      character: 'Catherine Cormack',
     },
     {
-      image: { CatherineDeMedicis },
-      character: "Catherine De Medicis",
+      image: CatherineDeMedicis,
+      character: 'Catherine De Medicis',
     },
     {
-      image: { TulliaDaragona },
+      image: TulliaDaragona,
       character: "Tullia D'Aragona",
     },
   ];
@@ -27,26 +28,26 @@ function FavoriPage() {
     <CardDeck>
       <TextIntroFavori />
       <Card>
-        <CardImg top width="100%" src={CatherineCormack} alt="Card image cap" />
+        <CardImg top width='100%' src={CatherineCormack} alt='Card image cap' />
 
-        <CardTitle tag="h5">{courtisans.character}</CardTitle>
+        <CardTitle tag='h5'>{courtisans.character}</CardTitle>
       </Card>
 
       <Card>
         <CardImg
           top
-          width="100%"
+          width='100%'
           src={CatherineDeMedicis}
-          alt="Card image cap"
+          alt='Card image cap'
         />
 
-        <CardTitle tag="h5">{courtisans.character}</CardTitle>
+        <CardTitle tag='h5'>{courtisans.character}</CardTitle>
       </Card>
 
       <Card>
-        <CardImg top width="100%" src={TulliaDaragona} alt="Card image cap" />
+        <CardImg top width='100%' src={TulliaDaragona} alt='Card image cap' />
 
-        <CardTitle tag="h5">{courtisans.character}</CardTitle>
+        <CardTitle tag='h5'>{courtisans.character}</CardTitle>
       </Card>
     </CardDeck>
   );
