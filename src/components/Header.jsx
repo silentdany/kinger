@@ -1,4 +1,6 @@
 import { Navbar } from "reactstrap";
+import { Link } from "react-router-dom";
+
 import { SiTinder } from "react-icons/si";
 import { AiFillStar } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
@@ -26,6 +28,8 @@ const Header = () => {
       />
 
       <FaUser
+        tag={Link}
+        to="/KingProfil"
         size={25}
         onClick={() => {
           setCurrentPage(!currentPage);
