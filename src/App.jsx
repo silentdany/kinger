@@ -1,11 +1,15 @@
 import "./App.css";
+import Header from "./components/Header";
+import { Navbar } from 'reactstrap';
+import ProfileCard from './components/ProfileCard';
 import FocusPartisan from "./components/pages/FocusPartisan";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Kinger</h1>
-      <h2>Tinder for the King</h2>
+    <div className='App'>
+      <Header />
+      <Navbar style={{ height: '15vh' }}>Footer</Navbar>
+      <ProfileCard />
       <FocusPartisan />
     </div>
   );
