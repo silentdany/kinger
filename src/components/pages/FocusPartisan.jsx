@@ -1,38 +1,31 @@
 import PropTypes from "prop-types";
 import UsersContext from "../../contexts/UsersContext";
-import { Col, Container, Row, UncontrolledCarousel } from "reactstrap";
+import { Badge, Col, Container, Row, UncontrolledCarousel } from "reactstrap";
 import { BsPerson } from "react-icons/bs";
 import { AiOutlineWoman } from "react-icons/ai";
 import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { useContext } from "react";
 
+import { marie } from "../../images";
+
 function FocusPartisan() {
   const { persons } = useContext(UsersContext);
 
   const items = [
     {
-      src:
-        "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa1d%20text%20%7B%20fill%3A%23555%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa1d%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22285.921875%22%20y%3D%22218.3%22%3EFirst%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E",
+      src: marie[1],
       altText: "Slide 1",
-      caption: "Slide 1",
-      header: "Slide 1 Header",
       key: "1",
     },
     {
-      src:
-        "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa20%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa20%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22218.3%22%3ESecond%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E",
+      src: marie[2],
       altText: "Slide 2",
-      caption: "Slide 2",
-      header: "Slide 2 Header",
       key: "2",
     },
     {
-      src:
-        "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa21%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa21%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277%22%20y%3D%22218.3%22%3EThird%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E",
+      src: marie[3],
       altText: "Slide 3",
-      caption: "Slide 3",
-      header: "Slide 3 Header",
       key: "3",
     },
   ];
@@ -40,12 +33,12 @@ function FocusPartisan() {
   console.log(persons);
 
   return (
-    <Container>
+    <Container className="min-vh-100">
       <Row>
         <Col xs="12" className="mt-3 mb-4">
-          <UncontrolledCarousel items={items} />
+          <UncontrolledCarousel items={items}></UncontrolledCarousel>
         </Col>
-        <Col xs="6" className="text-left">
+        <Col xs="8" className="text-left">
           <h2>
             <BsPerson /> {persons[0].name.first}
           </h2>
@@ -59,12 +52,19 @@ function FocusPartisan() {
             <AiOutlineHome /> Versailles
           </h3>
         </Col>
-        <Col xs="6" className="text-left">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            numquam quam facere, minima id voluptas fuga consectetur cumque
-            harum sint accusamus eveniet recusandae architecto expedita.
-          </p>
+        <Col xs="4">
+          <Badge pill color="dark" className="opacity-4 m-1 p-2">
+            Jeux de carte
+          </Badge>
+          <Badge pill color="dark" className="opacity-4 m-1 p-2">
+            Pique-nique
+          </Badge>
+          <Badge pill color="dark" className="opacity-4 m-1 p-2">
+            Promenade
+          </Badge>
+          <Badge pill color="dark" className="opacity-4 m-1 p-2">
+            Bal déguisé
+          </Badge>
         </Col>
       </Row>
     </Container>

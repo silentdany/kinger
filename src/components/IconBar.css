@@ -10,7 +10,7 @@
 .iconButton:hover {
   transform: scale(1.2);
 }
-.heartIcon {
+.startIcon {
   height: 65px;
   width: 65px;
 }
