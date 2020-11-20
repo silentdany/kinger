@@ -3,7 +3,6 @@ import UsersContext from "../contexts/UsersContext";
 import { Link } from "react-router-dom";
 import {
   Card,
-  CardText,
   CardBody,
   CardTitle,
   CardSubtitle,
