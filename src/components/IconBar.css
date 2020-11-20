@@ -3,8 +3,14 @@
 }
 .iconButton {
   background-color: white !important;
-  border: white !important;
+  border: #eaedf0 !important;
+  height: 55px;
+  width: 55px;
 }
 .iconButton:hover {
   transform: scale(1.2);
+}
+.heartIcon {
+  height: 65px;
+  width: 65px;
 }
