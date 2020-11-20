@@ -139,19 +139,19 @@ function ProfileCard({ id }) {
                 ></CardSubtitle>
               </div>
               <div className="mt-3 d-flex align-items-start">
-                <Badge pill color="dark" className="w-20 opacity-4 m-2 p-2">
+                <Badge pill color="dark" className="opacity-4 m-2 p-2">
                   Musique
                 </Badge>
-                <Badge pill color="dark" className="w-20 opacity-4 m-2 p-2">
+                <Badge pill color="dark" className="opacity-4 m-2 p-2">
                   Danse
                 </Badge>
-                <Badge pill color="dark" className="w-20 opacity-4 m-2 p-2">
+                <Badge pill color="dark" className="opacity-4 m-2 p-2">
                   Perruques
                 </Badge>
                 <Link to="/partisan">
                   <RiInformationFill
-                    size={30}
-                    className="m-2 w-40 align-items-end"
+                    size={45}
+                    className="pl-6 p-2 align-items-end"
                     style={{ fill: "white" }}
                   />
                 </Link>
