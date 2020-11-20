@@ -15,6 +15,7 @@ import {
   Badge,
 } from 'reactstrap';
 import { RiInformationFill } from 'react-icons/ri';
+import TinderCard from 'react-tinder-card';
 import './Card.css';
 
 import courtisane_1 from '../images/courtisane_1.jpg';
@@ -37,6 +38,14 @@ const items = [
     key: '2',
   },
 ];
+
+const onSwipe = (direction) => {
+  console.log('You swiped: ' + direction);
+};
+
+const onCardLeftScreen = (myIdentifier) => {
+  console.log(myIdentifier + ' left the screen');
+};
 
 // MAIN FUNCTION
 function ProfileCard({ id }) {
@@ -82,8 +91,11 @@ function ProfileCard({ id }) {
   });
 
   return (
-    <div>
-      <Card style={{ maxHeight: '79vh', width: '100vw', border: '0' }}>
+    <TinderCard
+      onSwipe={onSwipe}
+      onCardLeftScreen={() => onCardLeftScreen('fooBar')}
+      preventSwipe={['right', 'left']}>
+      <Card style={{ maxHeight: '79vh', border: '0' }}>
         <Carousel activeIndex={activeIndex} next={next} previous={previous}>
           <CarouselIndicators
             items={items}
@@ -142,7 +154,7 @@ function ProfileCard({ id }) {
           </div>
         </CardBody>
       </Card>
-    </div>
+    </TinderCard>
   );
 }
 

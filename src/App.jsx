@@ -7,7 +7,7 @@ function App() {
   return (
     <div className='App'>
       <ProfileCard />
-      <Courtesans />
+      {/* <Courtesans /> */}
       <IconBar />
     </div>
   );
