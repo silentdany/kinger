@@ -26,6 +26,13 @@ import montespan4 from './Montespan/Montespan_4-min.jpg';
 import courtisane1 from './courtisane_1.jpg';
 import courtisane2 from './courtisane_2.jpg';
 
+const mancini = [mancini1, mancini2, mancini3, mancini4, mancini5];
+const marie = [marie1, marie2, marie3, marie4];
+const montespan = [montespan1, montespan2, montespan3, montespan4];
+const louise = [louise1, louise2, louise3];
+const henriette = [henriette1, henriette2, henriette3, henriette4];
+const courtisane = [courtisane1, courtisane2];
+
 export {
   henriette1,
   henriette2,
@@ -49,4 +56,10 @@ export {
   montespan4,
   courtisane1,
   courtisane2,
+  mancini,
+  marie,
+  montespan,
+  louise,
+  henriette,
+  courtisane,
 };

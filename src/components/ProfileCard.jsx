@@ -17,31 +17,17 @@ import TinderCard from 'react-tinder-card';
 import './Card.css';
 
 import {
-  henriette1,
-  henriette2,
-  henriette3,
-  henriette4,
-  louise1,
-  louise2,
-  louise3,
-  mancini1,
-  mancini2,
-  mancini3,
-  mancini4,
-  mancini5,
-  marie1,
-  marie2,
-  marie3,
-  marie4,
-  montespan1,
-  montespan2,
-  montespan3,
-  montespan4,
-  courtisane1,
-  courtisane2,
+  mancini,
+  marie,
+  montespan,
+  louise,
+  henriette,
+  courtisane,
 } from '../images';
 
 import InterestBadge from './InterestBadge';
+import { poi } from './data/poi';
+import { quotes } from './data/quotes';
 
 const onSwipe = (direction) => {
   console.log('You swiped: ' + direction);
@@ -52,38 +38,6 @@ const onCardLeftScreen = (myIdentifier) => {
 };
 
 const alredyRemoved = [];
-
-//Point of interest array
-const poi = [
-  'musique',
-  'danse',
-  'perruques',
-  'politique',
-  'piano',
-  'violon',
-  'jeu de dames',
-  'échecs',
-  'chasse',
-  'mode',
-  'parfums',
-  'robes',
-  'argent',
-  'boire',
-  'festoyer',
-  'copuler',
-  'théatre',
-  'opéra',
-  'chiens',
-  'pas les chats',
-];
-
-//Courtesans pics
-const mancini = [mancini1, mancini2, mancini3, mancini4, mancini5];
-const marie = [marie1, marie2, marie3, marie4];
-const montespan = [montespan1, montespan2, montespan3, montespan4];
-const louise = [louise1, louise2, louise3];
-const henriette = [henriette1, henriette2, henriette3, henriette4];
-const courtisane = [courtisane1, courtisane2];
 let courtesans = [];
 
 //Get random between 0 and 9
@@ -99,6 +53,7 @@ function ProfileCard({ id }) {
   const [poi1, setPoi1] = useState(null);
   const [poi2, setPoi2] = useState(null);
   const [poi3, setPoi3] = useState(null);
+  const [quote, setQuote] = useState(null);
 
   let charactersState = persons;
 
@@ -180,6 +135,7 @@ function ProfileCard({ id }) {
     setPoi1(getRandomIntInclusive(0, 19));
     setPoi2(getRandomIntInclusive(0, 19));
     setPoi3(getRandomIntInclusive(0, 19));
+    setQuote(getRandomIntInclusive(0, 19));
     switch (getRandomIntInclusive(0, 4)) {
       case 0:
         courtesans = [
@@ -273,10 +229,7 @@ function ProfileCard({ id }) {
                     {character.dob.age}
                   </CardSubtitle>
                 </div>
-                <CardText>
-                  Icelui jovait clavecin debovt, Cela est se pevt brovtille por
-                  vovs
-                </CardText>
+                <CardText>{quotes[quote]}</CardText>
                 <CardText>
                   <InterestBadge poi={poi[poi1]} />
                   <InterestBadge poi={poi[poi2]} />
