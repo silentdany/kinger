@@ -7,35 +7,37 @@ import { FaUser } from "react-icons/fa";
 import { useState } from "react";
 
 const Header = () => {
-  const [currentPage, setCurrentPage] = useState(false);
-
+  const [rSelected, setRSelected] = useState(null);
   return (
     <Navbar className="d-flex justify-content-around">
-      <SiTinder
-        size={25}
-        onClick={() => {
-          setCurrentPage(!currentPage);
-        }}
-        className={currentPage ? "grayIcon" : "redIcon"}
-      />
+      <Link to="/">
+        <SiTinder
+          id="siTinder"
+          size={25}
+          onClick={() => setRSelected(1)}
+          active={rSelected === 1}
+          className={rSelected === 1 ? "redIcon" : "grayIcon"}
+        />
+      </Link>
+      <Link to="/fav">
+        <AiFillStar
+          id="aiFillStar"
+          size={25}
+          onClick={() => setRSelected(2)}
+          active={rSelected === 2}
+          className={rSelected === 2 ? "redIcon" : "grayIcon"}
+        />
+      </Link>
 
-      <AiFillStar
-        size={25}
-        onClick={() => {
-          setCurrentPage(!currentPage);
-        }}
-        className={currentPage ? "grayIcon" : "redIcon"}
-      />
-
-      <FaUser
-        tag={Link}
-        to="/KingProfil"
-        size={25}
-        onClick={() => {
-          setCurrentPage(!currentPage);
-        }}
-        className={currentPage ? "grayIcon" : "redIcon"}
-      />
+      <Link to="/king">
+        <FaUser
+          id="faUser"
+          size={25}
+          onClick={() => setRSelected(3)}
+          active={rSelected === 3}
+          className={rSelected === 3 ? "redIcon" : "grayIcon"}
+        />
+      </Link>
     </Navbar>
   );
 };

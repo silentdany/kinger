@@ -1,11 +1,15 @@
 import PropTypes from "prop-types";
+import UsersContext from "../../contexts/UsersContext";
 import { Col, Container, Row, UncontrolledCarousel } from "reactstrap";
 import { BsPerson } from "react-icons/bs";
 import { AiOutlineWoman } from "react-icons/ai";
 import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineCalendar } from "react-icons/ai";
+import { useContext } from "react";
 
 function FocusPartisan() {
+  const { persons } = useContext(UsersContext);
+
   const items = [
     {
       src:
@@ -33,6 +37,8 @@ function FocusPartisan() {
     },
   ];
 
+  console.log(persons);
+
   return (
     <Container>
       <Row>
@@ -41,10 +47,10 @@ function FocusPartisan() {
         </Col>
         <Col xs="6" className="text-left">
           <h2>
-            <BsPerson /> Partisan
+            <BsPerson /> {persons[0].name.first}
           </h2>
           <h3>
-            <AiOutlineCalendar /> 32
+            <AiOutlineCalendar /> {persons[0].dob.age}
           </h3>
           <h3>
             <AiOutlineWoman /> Female
