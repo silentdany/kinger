@@ -3,7 +3,7 @@ import LouisXIV from "../../images/LouisXIV.jpg";
 
 function KingProfil() {
   return (
-    <Container>
+    <Container className="min-vh-100">
       <Row>
         <Col xs={{ size: 6, offset: 3 }} className="mt-5 mb-4">
           <CardImg
@@ -26,7 +26,6 @@ function KingProfil() {
             théâtre.
           </p>
         </Col>
-
         <Col xs={{ size: 10, offset: 1 }} className="text-center">
           <Badge pill color="dark" className="opacity-4 m-1 p-2">
             Chasse

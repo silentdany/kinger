@@ -1,6 +1,5 @@
 import {
   CardBody,
-  Card,
   CardImg,
   CardSubtitle,
   CardText,
@@ -15,13 +14,9 @@ import UsersContext from "../../contexts/UsersContext";
 import { mancini, marie, montespan, louise, henriette } from "../../images";
 
 import { useContext } from "react";
-import { poi } from "../data/poi";
-import { quotes } from "../data/quotes";
 
 function FavoriPage() {
   const { persons } = useContext(UsersContext);
-
-  console.log(mancini);
 
   return (
     <CardGroup style={{ maxHeight: "79vh", border: "0" }}>
@@ -63,7 +58,7 @@ function FavoriPage() {
                 Théâtre
               </Badge>
               <Badge pill color="dark" className="opacity-4 m-2 p-2">
-                Frou-Frou
+                Bal
               </Badge>
             </CardText>
           </div>
@@ -107,7 +102,7 @@ function FavoriPage() {
                 Equitation
               </Badge>
               <Badge pill color="dark" className="opacity-4 m-2 p-2">
-                Bal
+                Frou-frou
               </Badge>
             </CardText>
           </div>
@@ -125,10 +120,10 @@ function FavoriPage() {
               {persons[3].dob.age}
             </CardSubtitle>
             <CardText className="d-flex align-items-center m-0">
-              <Badge pill color="dark" className="opacity-4 m-2 p-2">
+              <Badge pill color="dark" className="opacity-4 m-1 p-2">
                 Costumes
               </Badge>
-              <Badge pill color="dark" className="opacity-4 m-2 p-2">
+              <Badge pill color="dark" className="opacity-4 m-1 p-2">
                 Littérature
               </Badge>
             </CardText>
@@ -147,10 +142,10 @@ function FavoriPage() {
               {persons[3].dob.age}
             </CardSubtitle>
             <CardText className="d-flex align-items-center m-0">
-              <Badge pill color="dark" className="opacity-4 m-2 p-2">
+              <Badge pill color="dark" className="opacity-4 m-1 p-2">
                 Chasse
               </Badge>
-              <Badge pill color="dark" className="opacity-4 m-2 p-2">
+              <Badge pill color="dark" className="opacity-4 m-1 p-2">
                 Courtisane de luxe
               </Badge>
             </CardText>
