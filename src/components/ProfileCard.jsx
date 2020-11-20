@@ -3,7 +3,6 @@ import UsersContext from '../contexts/UsersContext';
 import { Link } from 'react-router-dom';
 import {
   Card,
-  CardText,
   CardBody,
   CardTitle,
   CardSubtitle,
@@ -11,6 +10,7 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
+  CardText,
 } from 'reactstrap';
 import { RiInformationFill } from 'react-icons/ri';
 import TinderCard from 'react-tinder-card';

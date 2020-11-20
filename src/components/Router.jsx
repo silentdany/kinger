@@ -30,7 +30,7 @@ const Router = () => {
     <BrowserRouter>
       <Header />
       <Switch>
-        <UsersContext.Provider value={{ persons, setPersons }}>
+        <UsersContext.Provider value={{ persons }}>
           <Route exact path='/' component={App} />
           <Route path='/partisan/' component={FocusPartisan} />
           <Route path='/king/' component={KingProfil} />

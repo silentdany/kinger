@@ -1,15 +1,16 @@
-import { CardImg, Col, Container, Row } from "reactstrap";
+import { Badge, CardImg, Col, Container, Row } from "reactstrap";
+import LouisXIV from "../../images/LouisXIV.jpg";
 
 function KingProfil() {
   return (
     <Container>
       <Row>
-        <Col xs={{ size: 6, offset: 3 }} className="mt-3 mb-4">
+        <Col xs={{ size: 6, offset: 3 }} className="mt-5 mb-4">
           <CardImg
             className="rounded-circle"
             top
             width="100%"
-            src="https://static.cnews.fr/sites/default/files/louis_xiv_of_france.jpg"
+            src={LouisXIV}
             alt="Card image cap"
           />
         </Col>
@@ -17,12 +18,34 @@ function KingProfil() {
           <h2>Louis XIV</h2>
           <h4>Château de Versailles</h4>
         </Col>
-        <Col xs={{ size: 6, offset: 3 }} className="text-center mt-3">
+        <Col xs={{ size: 10, offset: 1 }} className="text-justify mt-3">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            numquam quam facere, minima id voluptas fuga consectetur cumque
-            harum sint accusamus eveniet recusandae architecto expedita.
+            Passionné par la chasse, amateur de promenade, je cherche une
+            courtisane qui saura être la parfaite compagne pour les
+            divertissements du soir: les jeux, les bals et les sorties au
+            théâtre.
           </p>
+        </Col>
+
+        <Col xs={{ size: 10, offset: 1 }} className="text-center">
+          <Badge pill color="dark" className="opacity-4 m-2 p-2">
+            Chasse
+          </Badge>
+          <Badge pill color="dark" className="opacity-4 m-2 p-2">
+            Promenade
+          </Badge>
+          <Badge pill color="dark" className="opacity-4 m-2 p-2">
+            Jeux
+          </Badge>
+          <Badge pill color="dark" className="opacity-4 m-2 p-2">
+            Bal
+          </Badge>
+          <Badge pill color="dark" className="opacity-4 m-2 p-2">
+            Théâtre
+          </Badge>
+          <Badge pill color="dark" className="opacity-4 m-2 p-2">
+            Bagatelle
+          </Badge>
         </Col>
       </Row>
     </Container>
