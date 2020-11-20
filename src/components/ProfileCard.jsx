@@ -57,14 +57,24 @@ const alredyRemoved = [];
 const poi = [
   'musique',
   'danse',
-  'bouffe',
-  'babla',
+  'perruques',
+  'politique',
   'piano',
   'violon',
-  'tamere',
-  'ola',
-  'viaaande',
-  'gaming',
+  'jeu de dames',
+  'échecs',
+  'chasse',
+  'mode',
+  'parfums',
+  'robes',
+  'argent',
+  'boire',
+  'festoyer',
+  'copuler',
+  'théatre',
+  'opéra',
+  'chiens',
+  'pas les chats',
 ];
 
 //Courtesans pics
@@ -167,9 +177,9 @@ function ProfileCard({ id }) {
   });
 
   useEffect(() => {
-    setPoi1(getRandomIntInclusive(0, 2));
-    setPoi2(getRandomIntInclusive(0, 2));
-    setPoi3(getRandomIntInclusive(0, 2));
+    setPoi1(getRandomIntInclusive(0, 19));
+    setPoi2(getRandomIntInclusive(0, 19));
+    setPoi3(getRandomIntInclusive(0, 19));
     switch (getRandomIntInclusive(0, 4)) {
       case 0:
         courtesans = [
