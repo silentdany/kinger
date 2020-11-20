@@ -68,12 +68,13 @@ const poi = [
 ];
 
 //Courtesans pics
-const pics = [mancini1, mancini2, mancini3, mancini4, mancini5];
-const courtesans = [
-  { src: pics[getRandomIntInclusive(0, 4)] },
-  { src: pics[getRandomIntInclusive(0, 4)] },
-  { src: pics[getRandomIntInclusive(0, 4)] },
-];
+const mancini = [mancini1, mancini2, mancini3, mancini4, mancini5];
+const marie = [marie1, marie2, marie3, marie4];
+const montespan = [montespan1, montespan2, montespan3, montespan4];
+const louise = [louise1, louise2, louise3];
+const henriette = [henriette1, henriette2, henriette3, henriette4];
+const courtisane = [courtisane1, courtisane2];
+let courtesans = [];
 
 //Get random between 0 and 9
 function getRandomIntInclusive(min, max) {
@@ -169,6 +170,53 @@ function ProfileCard({ id }) {
     setPoi1(getRandomIntInclusive(0, 2));
     setPoi2(getRandomIntInclusive(0, 2));
     setPoi3(getRandomIntInclusive(0, 2));
+    switch (getRandomIntInclusive(0, 4)) {
+      case 0:
+        courtesans = [
+          { src: mancini[0] },
+          { src: mancini[1] },
+          { src: mancini[2] },
+          { src: mancini[3] },
+          { src: mancini[4] },
+        ];
+        break;
+      case 1:
+        courtesans = [
+          { src: marie[0] },
+          { src: marie[1] },
+          { src: marie[2] },
+          { src: marie[3] },
+        ];
+        break;
+      case 2:
+        courtesans = [
+          { src: montespan[0] },
+          { src: montespan[1] },
+          { src: montespan[2] },
+          { src: montespan[3] },
+        ];
+        break;
+      case 3:
+        courtesans = [
+          { src: louise[0] },
+          { src: louise[1] },
+          { src: louise[2] },
+        ];
+        break;
+      case 4:
+        courtesans = [
+          { src: henriette[0] },
+          { src: henriette[1] },
+          { src: henriette[2] },
+          { src: henriette[3] },
+        ];
+      case 5:
+        courtesans = [{ src: courtisane[0] }, { src: courtisane[1] }];
+        break;
+
+      default:
+        break;
+    }
   }, [characters]);
 
   return (
