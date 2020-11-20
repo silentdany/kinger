@@ -11,10 +11,10 @@ function IconBar() {
         <ImCross color="#fe615f" size={25} />
       </Button>
       <Button className="btn-outline-light rounded-circle mx-2 iconButton startIcon">
-        <AiFillStar color="#24e5a9" size={30} />
+        <AiFillStar color="#20bbff" size={30} />
       </Button>
       <Button className="btn-outline-light rounded-circle iconButton mt-1">
-        <BsFillHeartFill color="#20bbff" size={25} />
+        <BsFillHeartFill color="#24e5a9" size={25} />
       </Button>
     </div>
   );
