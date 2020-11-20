@@ -28,22 +28,22 @@ function KingProfil() {
         </Col>
 
         <Col xs={{ size: 10, offset: 1 }} className="text-center">
-          <Badge pill color="dark" className="opacity-4 m-2 p-2">
+          <Badge pill color="dark" className="opacity-4 m-1 p-2">
             Chasse
           </Badge>
-          <Badge pill color="dark" className="opacity-4 m-2 p-2">
+          <Badge pill color="dark" className="opacity-4 m-1 p-2">
             Promenade
           </Badge>
-          <Badge pill color="dark" className="opacity-4 m-2 p-2">
-            Jeux
-          </Badge>
-          <Badge pill color="dark" className="opacity-4 m-2 p-2">
+          <Badge pill color="dark" className="opacity-4 m-1 p-2">
             Bal
           </Badge>
-          <Badge pill color="dark" className="opacity-4 m-2 p-2">
+          <Badge pill color="dark" className="opacity-4 m-1 p-2">
+            Jeux
+          </Badge>
+          <Badge pill color="dark" className="opacity-4 m-1 p-2">
             Théâtre
           </Badge>
-          <Badge pill color="dark" className="opacity-4 m-2 p-2">
+          <Badge pill color="dark" className="opacity-4 m-1 p-2">
             Bagatelle
           </Badge>
         </Col>
