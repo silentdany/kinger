@@ -4,36 +4,29 @@ import { BsFillHeartFill } from "react-icons/bs";
 import "./IconBar.css";
 import { Link } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
-import Axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import UsersContext from "../contexts/UsersContext";
 
 function IconBar() {
   const [Favorited, setFavorited] = useState(false);
-
-  useEffect(() => {
-    Axios.get(
-      "https://randomuser.me/api/?results=20&nat=fr&gender=female&inc=name,dob,location,picture,id,login"
-    ).then((res) => {
-      setFavorited(res.data.results);
-    });
-  }, []);
+  const { persons } = useContext(UsersContext);
 
   return (
     <div className="py-4 d-flex justify-content-center iconBar">
-      <Button className="btn-outline-light rounded-circle h-auto w-auto iconButton">
+      <Button className="btn-outline-light rounded-circle iconButton mt-1">
         <ImCross color="#fe615f" size={25} />
       </Button>
-      <Button className="btn-outline-light rounded-circle iconButton h-200">
+      <Button className="btn-outline-light rounded-circle iconButton heartIcon">
         <BsFillHeartFill color="#24e5a9" size={25} />
       </Button>
       <div className="py-4 d-flex justify-content-center iconBar">
         <Link to="/fav">
           <Button
-            className="btn-outline-light iconButton"
+            className="btn-outline-light rounded-circle align-middle"
             onClick={() => setFavorited((prev) => !prev)}
           >
-            {Favorited ? " Add to Fav " : ""}
             <AiFillStar color="#20bbff" size={30} />
+            {Favorited ? " Add to Fav " : ""}
           </Button>
         </Link>
       </div>
