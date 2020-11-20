@@ -176,6 +176,7 @@ function ProfileCard({ id }) {
           { src: henriette[2] },
           { src: henriette[3] },
         ];
+        break;
       case 5:
         courtesans = [{ src: courtisane[0] }, { src: courtisane[1] }];
         break;
@@ -186,7 +187,7 @@ function ProfileCard({ id }) {
   }, [characters]);
 
   return (
-    <div className='cardContainer' style={{ height: '79vh' }}>
+    <div className='cardContainer'>
       {characters.map((character, index) => (
         <TinderCard
           ref={childRefs[index]}
@@ -218,8 +219,8 @@ function ProfileCard({ id }) {
             </Carousel>
             {/* Profile informations */}
             <CardBody
-              style={{ height: '79vh' }}
-              className='position-absolute d-flex justify-content-start align-items-end'>
+              className='position-absolute d-flex justify-content-start align-items-end'
+              style={{ bottom: '0' }}>
               <div className='d-flex flex-column'>
                 <div className='d-flex align-items-center'>
                   <CardTitle tag='h3' className='font-weight-bold'>
@@ -239,7 +240,19 @@ function ProfileCard({ id }) {
               <div
                 className='d-flex w-25 justify-content-center'
                 style={{ zIndex: '500' }}>
-                <Link to='/partisan'>
+                <Link
+                  to={{
+                    pathname: '/partisan',
+                    customsInfos: {
+                      name: character.name.first,
+                      age: character.dob.age,
+                      poi1: poi[poi1],
+                      poi2: poi[poi2],
+                      poi3: poi[poi3],
+                      quote: quotes[quote],
+                      pics: courtesans,
+                    },
+                  }}>
                   <RiInformationFill size={30} style={{ fill: 'white' }} />
                 </Link>
               </div>
