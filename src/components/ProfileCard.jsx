@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import UsersContext from "../contexts/UsersContext";
 import { Link } from "react-router-dom";
 import {
@@ -10,41 +10,52 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption,
-  Badge,
-  Row,
+  CardText,
 } from "reactstrap";
 import { RiInformationFill } from "react-icons/ri";
-import { GoLocation } from "react-icons/go";
-
+import TinderCard from "react-tinder-card";
 import "./Card.css";
 
-import courtisane_1 from "../images/courtisane_1.jpg";
-import courtisane_2 from "../images/courtisane_2.jpg";
+import {
+  mancini,
+  marie,
+  montespan,
+  louise,
+  henriette,
+  courtisane,
+} from "../images";
 
-// Profile pictures array for acrousel
-const items = [
-  {
-    src: courtisane_1,
-    altText: "Slide 1",
-    caption: "Slide 1",
-    header: "Slide 1 Header",
-    key: "1",
-  },
-  {
-    src: courtisane_2,
-    altText: "Slide 2",
-    caption: "Slide 2",
-    header: "Slide 2 Header",
-    key: "2",
-  },
-];
+import InterestBadge from "./InterestBadge";
+import { poi } from "./data/poi";
+import { quotes } from "./data/quotes";
+
+const onSwipe = (direction) => {
+  console.log("You swiped: " + direction);
+};
+
+const onCardLeftScreen = (myIdentifier) => {
+  console.log(myIdentifier + " left the screen");
+};
+
+const alredyRemoved = [];
+let courtesans = [];
+
+//Get random between 0 and 9
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 // MAIN FUNCTION
 function ProfileCard({ id }) {
   const { persons } = useContext(UsersContext);
+  const [poi1, setPoi1] = useState(null);
+  const [poi2, setPoi2] = useState(null);
+  const [poi3, setPoi3] = useState(null);
+  const [quote, setQuote] = useState(null);
 
-  console.log(persons);
+  let charactersState = persons;
 
   // Carousel control states
   const [activeIndex, setActiveIndex] = useState(0);
@@ -53,12 +64,14 @@ function ProfileCard({ id }) {
   // Carousel controls functions
   const next = () => {
     if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+    const nextIndex =
+      activeIndex === courtesans.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
   };
   const previous = () => {
     if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+    const nextIndex =
+      activeIndex === 0 ? courtesans.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
   };
   const goToIndex = (newIndex) => {
@@ -66,100 +79,178 @@ function ProfileCard({ id }) {
     setActiveIndex(newIndex);
   };
 
+  //Tinder swipe
+  const [characters, setCharacters] = useState(persons);
+  const [lastDirection, setLastDirection] = useState();
+
+  const childRefs = useMemo(
+    () =>
+      Array(persons.length)
+        .fill(0)
+        .map((i) => React.createRef()),
+    [persons.length]
+  );
+
+  const swiped = (direction, nameToDelete) => {
+    console.log("removing: " + nameToDelete);
+    setLastDirection(direction);
+    alredyRemoved.push(nameToDelete);
+  };
+
+  const outOfFrame = (name) => {
+    console.log(name + " left the screen!");
+    charactersState = charactersState.filter(
+      (character) => character.name.first !== name
+    );
+    setCharacters(charactersState);
+  };
+
+  const swipe = (dir) => {
+    const cardsLeft = characters.filter(
+      (person) => !alredyRemoved.includes(person.name.first)
+    );
+    if (cardsLeft.length) {
+      const toBeRemoved = cardsLeft[cardsLeft.length - 1].name.first; // Find the card object to be removed
+      const index = persons
+        .map((person) => person.name.first)
+        .indexOf(toBeRemoved); // Find the index of which to make the reference to
+      alredyRemoved.push(toBeRemoved); // Make sure the next card gets removed next time if this card do not have time to exit the screen
+      childRefs[index].current.swipe(dir); // Swipe the card!
+    }
+  };
+
   // Carousel items slides function
-  const slides = items.map((item) => {
+  const slides = courtesans.map((item) => {
     return (
       <CarouselItem
         className="shadow-lg"
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item.src}
       >
-        <img src={item.src} alt={item.altText} style={{ height: "79vh" }} />
-        <CarouselCaption
-          captionText={item.caption}
-          captionHeader={item.caption}
-        />
+        <img src={item.src} alt="" style={{ height: "79vh" }} />
       </CarouselItem>
     );
   });
 
+  useEffect(() => {
+    setPoi1(getRandomIntInclusive(0, 19));
+    setPoi2(getRandomIntInclusive(0, 19));
+    setPoi3(getRandomIntInclusive(0, 19));
+    setQuote(getRandomIntInclusive(0, 19));
+    switch (getRandomIntInclusive(0, 4)) {
+      case 0:
+        courtesans = [
+          { src: mancini[0] },
+          { src: mancini[1] },
+          { src: mancini[2] },
+          { src: mancini[3] },
+          { src: mancini[4] },
+        ];
+        break;
+      case 1:
+        courtesans = [
+          { src: marie[0] },
+          { src: marie[1] },
+          { src: marie[2] },
+          { src: marie[3] },
+        ];
+        break;
+      case 2:
+        courtesans = [
+          { src: montespan[0] },
+          { src: montespan[1] },
+          { src: montespan[2] },
+          { src: montespan[3] },
+        ];
+        break;
+      case 3:
+        courtesans = [
+          { src: louise[0] },
+          { src: louise[1] },
+          { src: louise[2] },
+        ];
+        break;
+      case 4:
+        courtesans = [
+          { src: henriette[0] },
+          { src: henriette[1] },
+          { src: henriette[2] },
+          { src: henriette[3] },
+        ];
+      case 5:
+        courtesans = [{ src: courtisane[0] }, { src: courtisane[1] }];
+        break;
+
+      default:
+        break;
+    }
+  }, [characters]);
+
   return (
-    <div>
-      <Row className="mx-2">
-        <Card style={{ maxHeight: "79vh", width: "100vw", border: "0" }}>
-          <Carousel activeIndex={activeIndex} next={next} previous={previous}>
-            <CarouselIndicators
-              items={items}
-              activeIndex={activeIndex}
-              onClickHandler={goToIndex}
-            />
-            {/* Actual slide items */}
-            {slides}
-            <CarouselControl
-              style={{ display: "none" }}
-              direction="prev"
-              directionText="Previous"
-              onClickHandler={previous}
-            />
-            <CarouselControl
-              style={{ display: "none" }}
-              direction="next"
-              directionText="Next"
-              onClickHandler={next}
-            />
-          </Carousel>
-          {/* Profile informations */}
-          <CardBody
-            style={{ height: "79vh" }}
-            className="position-absolute d-flex justify-content-start align-items-end"
-          >
-            <div className="d-flex flex-column">
-              <div className="d-flex align-items-center">
-                <CardTitle tag="h3" className="ml-2 font-weight-bold">
-                  {persons[0].name.first}
-                </CardTitle>
-                <CardSubtitle tag="h4" className="ml-2 font-weight-light">
-                  {persons[0].dob.age}
-                </CardSubtitle>
+    <div className="cardContainer" style={{ height: "79vh" }}>
+      {characters.map((character, index) => (
+        <TinderCard
+          ref={childRefs[index]}
+          className="swipe"
+          key={character.id.value}
+          onSwipe={(dir) => swiped(dir, character.name.first)}
+          onCardLeftScreen={() => outOfFrame(character.name.first)}
+        >
+          <Card style={{ maxHeight: "79vh", border: "0" }}>
+            <Carousel activeIndex={activeIndex} next={next} previous={previous}>
+              <CarouselIndicators
+                items={courtesans}
+                activeIndex={activeIndex}
+                onClickHandler={goToIndex}
+              />
+              {/* Actual slide items */}
+              {slides}
+              <CarouselControl
+                style={{ display: "none" }}
+                direction="prev"
+                directionText="Previous"
+                onClickHandler={previous}
+              />
+              <CarouselControl
+                style={{ display: "none" }}
+                direction="next"
+                directionText="Next"
+                onClickHandler={next}
+              />
+            </Carousel>
+            {/* Profile informations */}
+            <CardBody
+              style={{ height: "79vh" }}
+              className="position-absolute d-flex justify-content-start align-items-end"
+            >
+              <div className="d-flex flex-column">
+                <div className="d-flex align-items-center">
+                  <CardTitle tag="h3" className="font-weight-bold">
+                    {character.name.first}
+                  </CardTitle>
+                  <CardSubtitle tag="h4" className="ml-2 font-weight-light">
+                    {character.dob.age}
+                  </CardSubtitle>
+                </div>
+                <CardText>{quotes[quote]}</CardText>
+                <CardText>
+                  <InterestBadge poi={poi[poi1]} />
+                  <InterestBadge poi={poi[poi2]} />
+                  <InterestBadge poi={poi[poi3]} />
+                </CardText>
               </div>
               <div
-                className="d-flex align-items-start"
-                style={{ color: "white" }}
+                className="d-flex w-25 justify-content-center"
+                style={{ zIndex: "500" }}
               >
-                <GoLocation
-                  className="mx-2"
-                  size={25}
-                  style={{ fill: "white" }}
-                />
-                {persons[0].location.city}
-                <CardSubtitle
-                  tag="h4"
-                  className="ml-2 font-weight-light"
-                ></CardSubtitle>
-              </div>
-              <div className="mt-3 d-flex align-items-start">
-                <Badge pill color="dark" className="opacity-4 m-2 p-2">
-                  Musique
-                </Badge>
-                <Badge pill color="dark" className="opacity-4 m-2 p-2">
-                  Danse
-                </Badge>
-                <Badge pill color="dark" className="opacity-4 m-2 p-2">
-                  Perruques
-                </Badge>
                 <Link to="/partisan">
-                  <RiInformationFill
-                    size={45}
-                    className="pl-6 p-2 align-items-end"
-                    style={{ fill: "white" }}
-                  />
+                  <RiInformationFill size={30} style={{ fill: "white" }} />
                 </Link>
               </div>
-            </div>
-          </CardBody>
-        </Card>
-      </Row>
+            </CardBody>
+          </Card>
+        </TinderCard>
+      ))}
     </div>
   );
 }
