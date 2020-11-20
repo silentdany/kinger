@@ -16,11 +16,30 @@ import { RiInformationFill } from 'react-icons/ri';
 import TinderCard from 'react-tinder-card';
 import './Card.css';
 
-import courtisane_1 from '../images/courtisane_1.jpg';
-import courtisane_2 from '../images/courtisane_2.jpg';
-import cormack from '../images/CatherineCormack.jpg';
-import medicis from '../images/CatherineDeMedicis.jpg';
-import daragona from '../images/TulliaDaragona.jpg';
+import {
+  henriette1,
+  henriette2,
+  henriette3,
+  henriette4,
+  louise1,
+  louise2,
+  louise3,
+  mancini1,
+  mancini2,
+  mancini3,
+  mancini4,
+  mancini5,
+  marie1,
+  marie2,
+  marie3,
+  marie4,
+  montespan1,
+  montespan2,
+  montespan3,
+  montespan4,
+  courtisane1,
+  courtisane2,
+} from '../images';
 
 import InterestBadge from './InterestBadge';
 
@@ -49,7 +68,7 @@ const poi = [
 ];
 
 //Courtesans pics
-const pics = [courtisane_1, courtisane_2, cormack, medicis, daragona];
+const pics = [mancini1, mancini2, mancini3, mancini4, mancini5];
 const courtesans = [
   { src: pics[getRandomIntInclusive(0, 4)] },
   { src: pics[getRandomIntInclusive(0, 4)] },
