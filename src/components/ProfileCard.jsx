@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react';
-import UsersContext from '../contexts/UsersContext';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useMemo, useState } from "react";
+import UsersContext from "../contexts/UsersContext";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardBody,
@@ -11,10 +11,10 @@ import {
   CarouselControl,
   CarouselIndicators,
   CardText,
-} from 'reactstrap';
-import { RiInformationFill } from 'react-icons/ri';
-import TinderCard from 'react-tinder-card';
-import './Card.css';
+} from "reactstrap";
+import { RiInformationFill } from "react-icons/ri";
+import TinderCard from "react-tinder-card";
+import "./Card.css";
 
 import {
   mancini,
@@ -23,18 +23,18 @@ import {
   louise,
   henriette,
   courtisane,
-} from '../images';
+} from "../images";
 
-import InterestBadge from './InterestBadge';
-import { poi } from './data/poi';
-import { quotes } from './data/quotes';
+import InterestBadge from "./InterestBadge";
+import { poi } from "./data/poi";
+import { quotes } from "./data/quotes";
 
 const onSwipe = (direction) => {
-  console.log('You swiped: ' + direction);
+  console.log("You swiped: " + direction);
 };
 
 const onCardLeftScreen = (myIdentifier) => {
-  console.log(myIdentifier + ' left the screen');
+  console.log(myIdentifier + " left the screen");
 };
 
 const alredyRemoved = [];
@@ -92,13 +92,13 @@ function ProfileCard({ id }) {
   );
 
   const swiped = (direction, nameToDelete) => {
-    console.log('removing: ' + nameToDelete);
+    console.log("removing: " + nameToDelete);
     setLastDirection(direction);
     alredyRemoved.push(nameToDelete);
   };
 
   const outOfFrame = (name) => {
-    console.log(name + ' left the screen!');
+    console.log(name + " left the screen!");
     charactersState = charactersState.filter(
       (character) => character.name.first !== name
     );
@@ -123,10 +123,11 @@ function ProfileCard({ id }) {
   const slides = courtesans.map((item) => {
     return (
       <CarouselItem
-        className='shadow-lg'
+        className="shadow-lg"
         onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}>
-        <img src={item.src} alt='' style={{ height: '79vh' }} />
+        onExited={() => setAnimating(false)}
+      >
+        <img src={item.src} alt="" style={{ height: "79vh" }} />
       </CarouselItem>
     );
   });
@@ -186,15 +187,16 @@ function ProfileCard({ id }) {
   }, [characters]);
 
   return (
-    <div className='cardContainer' style={{ height: '79vh' }}>
+    <div className="cardContainer" style={{ height: "79vh" }}>
       {characters.map((character, index) => (
         <TinderCard
           ref={childRefs[index]}
-          className='swipe'
+          className="swipe"
           key={character.id.value}
           onSwipe={(dir) => swiped(dir, character.name.first)}
-          onCardLeftScreen={() => outOfFrame(character.name.first)}>
-          <Card style={{ maxHeight: '79vh', border: '0' }}>
+          onCardLeftScreen={() => outOfFrame(character.name.first)}
+        >
+          <Card style={{ maxHeight: "79vh", border: "0" }}>
             <Carousel activeIndex={activeIndex} next={next} previous={previous}>
               <CarouselIndicators
                 items={courtesans}
@@ -204,28 +206,29 @@ function ProfileCard({ id }) {
               {/* Actual slide items */}
               {slides}
               <CarouselControl
-                style={{ display: 'none' }}
-                direction='prev'
-                directionText='Previous'
+                style={{ display: "none" }}
+                direction="prev"
+                directionText="Previous"
                 onClickHandler={previous}
               />
               <CarouselControl
-                style={{ display: 'none' }}
-                direction='next'
-                directionText='Next'
+                style={{ display: "none" }}
+                direction="next"
+                directionText="Next"
                 onClickHandler={next}
               />
             </Carousel>
             {/* Profile informations */}
             <CardBody
-              style={{ height: '79vh' }}
-              className='position-absolute d-flex justify-content-start align-items-end'>
-              <div className='d-flex flex-column'>
-                <div className='d-flex align-items-center'>
-                  <CardTitle tag='h3' className='font-weight-bold'>
+              style={{ height: "79vh" }}
+              className="position-absolute d-flex justify-content-start align-items-end"
+            >
+              <div className="d-flex flex-column">
+                <div className="d-flex align-items-center">
+                  <CardTitle tag="h3" className="font-weight-bold">
                     {character.name.first}
                   </CardTitle>
-                  <CardSubtitle tag='h4' className='ml-2 font-weight-light'>
+                  <CardSubtitle tag="h4" className="ml-2 font-weight-light">
                     {character.dob.age}
                   </CardSubtitle>
                 </div>
@@ -237,10 +240,11 @@ function ProfileCard({ id }) {
                 </CardText>
               </div>
               <div
-                className='d-flex w-25 justify-content-center'
-                style={{ zIndex: '500' }}>
-                <Link to='/partisan'>
-                  <RiInformationFill size={30} style={{ fill: 'white' }} />
+                className="d-flex w-25 justify-content-center"
+                style={{ zIndex: "500" }}
+              >
+                <Link to="/partisan">
+                  <RiInformationFill size={30} style={{ fill: "white" }} />
                 </Link>
               </div>
             </CardBody>
