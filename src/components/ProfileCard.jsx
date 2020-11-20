@@ -16,13 +16,18 @@ import { RiInformationFill } from 'react-icons/ri';
 import TinderCard from 'react-tinder-card';
 import './Card.css';
 
-import courtisane_1 from '../images/courtisane_1.jpg';
-import courtisane_2 from '../images/courtisane_2.jpg';
-import cormack from '../images/CatherineCormack.jpg';
-import medicis from '../images/CatherineDeMedicis.jpg';
-import daragona from '../images/TulliaDaragona.jpg';
+import {
+  mancini,
+  marie,
+  montespan,
+  louise,
+  henriette,
+  courtisane,
+} from '../images';
 
 import InterestBadge from './InterestBadge';
+import { poi } from './data/poi';
+import { quotes } from './data/quotes';
 
 const onSwipe = (direction) => {
   console.log('You swiped: ' + direction);
@@ -33,28 +38,7 @@ const onCardLeftScreen = (myIdentifier) => {
 };
 
 const alredyRemoved = [];
-
-//Point of interest array
-const poi = [
-  'musique',
-  'danse',
-  'bouffe',
-  'babla',
-  'piano',
-  'violon',
-  'tamere',
-  'ola',
-  'viaaande',
-  'gaming',
-];
-
-//Courtesans pics
-const pics = [courtisane_1, courtisane_2, cormack, medicis, daragona];
-const courtesans = [
-  { src: pics[getRandomIntInclusive(0, 4)] },
-  { src: pics[getRandomIntInclusive(0, 4)] },
-  { src: pics[getRandomIntInclusive(0, 4)] },
-];
+let courtesans = [];
 
 //Get random between 0 and 9
 function getRandomIntInclusive(min, max) {
@@ -69,6 +53,7 @@ function ProfileCard({ id }) {
   const [poi1, setPoi1] = useState(null);
   const [poi2, setPoi2] = useState(null);
   const [poi3, setPoi3] = useState(null);
+  const [quote, setQuote] = useState(null);
 
   let charactersState = persons;
 
@@ -147,9 +132,57 @@ function ProfileCard({ id }) {
   });
 
   useEffect(() => {
-    setPoi1(getRandomIntInclusive(0, 2));
-    setPoi2(getRandomIntInclusive(0, 2));
-    setPoi3(getRandomIntInclusive(0, 2));
+    setPoi1(getRandomIntInclusive(0, 19));
+    setPoi2(getRandomIntInclusive(0, 19));
+    setPoi3(getRandomIntInclusive(0, 19));
+    setQuote(getRandomIntInclusive(0, 19));
+    switch (getRandomIntInclusive(0, 4)) {
+      case 0:
+        courtesans = [
+          { src: mancini[0] },
+          { src: mancini[1] },
+          { src: mancini[2] },
+          { src: mancini[3] },
+          { src: mancini[4] },
+        ];
+        break;
+      case 1:
+        courtesans = [
+          { src: marie[0] },
+          { src: marie[1] },
+          { src: marie[2] },
+          { src: marie[3] },
+        ];
+        break;
+      case 2:
+        courtesans = [
+          { src: montespan[0] },
+          { src: montespan[1] },
+          { src: montespan[2] },
+          { src: montespan[3] },
+        ];
+        break;
+      case 3:
+        courtesans = [
+          { src: louise[0] },
+          { src: louise[1] },
+          { src: louise[2] },
+        ];
+        break;
+      case 4:
+        courtesans = [
+          { src: henriette[0] },
+          { src: henriette[1] },
+          { src: henriette[2] },
+          { src: henriette[3] },
+        ];
+      case 5:
+        courtesans = [{ src: courtisane[0] }, { src: courtisane[1] }];
+        break;
+
+      default:
+        break;
+    }
   }, [characters]);
 
   return (
@@ -196,10 +229,7 @@ function ProfileCard({ id }) {
                     {character.dob.age}
                   </CardSubtitle>
                 </div>
-                <CardText>
-                  Icelui jovait clavecin debovt, Cela est se pevt brovtille por
-                  vovs
-                </CardText>
+                <CardText>{quotes[quote]}</CardText>
                 <CardText>
                   <InterestBadge poi={poi[poi1]} />
                   <InterestBadge poi={poi[poi2]} />
