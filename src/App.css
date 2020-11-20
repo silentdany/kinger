@@ -1,6 +1,7 @@
 body {
   width: 320px;
   margin: auto;
+  background: linear-gradient(#ffffff, #f6f7fa);
 }
 
 .App {
