@@ -50,7 +50,7 @@ function FocusPartisan() {
             <BsPerson /> {persons[0].name.first}
           </h2>
           <h3>
-            <AiOutlineCalendar /> 32
+            <AiOutlineCalendar /> {persons[0].dob.age}
           </h3>
           <h3>
             <AiOutlineWoman /> Female
