@@ -45,7 +45,7 @@ function FocusPartisan() {
         <Col xs="12" className="mt-3 mb-4">
           <UncontrolledCarousel items={items} />
         </Col>
-        <Col xs="6" className="text-left">
+        <Col xs="7" className="text-left">
           <h2>
             <BsPerson /> {persons[0].name.first}
           </h2>
@@ -59,7 +59,7 @@ function FocusPartisan() {
             <AiOutlineHome /> Versailles
           </h3>
         </Col>
-        <Col xs="6" className="text-left">
+        <Col xs="5" className="text-left">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
             numquam quam facere, minima id voluptas fuga consectetur cumque
